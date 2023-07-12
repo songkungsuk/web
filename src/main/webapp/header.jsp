@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%! %>
-<% %>
-<%= %>
+<%@ include file="/include/common.jsp" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<jsp:include page="/include/header.jsp"></jsp:include>
+<h1>홈페이지</h1>
+<h2><%=root %></h2>
 </body>
 </html>
