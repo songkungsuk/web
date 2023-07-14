@@ -29,18 +29,18 @@
 		<table border="1">
 			<tr>
 				<td>제목</td>
-				<td><textarea ><%=rs.getString("BI_TITLE")%></textarea><input type="hidden" name="BI_TITLE" id="BI_TITLE" value="<%=rs.getString("BI_TITLE")%>"></td>
+				<td><input type="text" name="BI_TITLE" id="BI_TITLE" value="<%=rs.getString("BI_TITLE")%>"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="hidden" name="BI_WRITER" id="BI_WRITER" value="<%=rs.getString("BI_WRITER")%>"><textarea ><%=rs.getString("BI_WRITER")%></textarea></td>
+				<td><input type="text" name="BI_WRITER" id="BI_WRITER" value="<%=rs.getString("BI_WRITER")%>"></td>
 			</tr>
 			<tr>
 			<tr>
 				<td colspan="2">내용</td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="hidden" name="BI_CONTENT" id="BI_CONTENT" value="<%=rs.getString("BI_CONTENT")%>"><textarea rows="30" cols="30"> <%=rs.getString("BI_CONTENT")%></textarea></td>
+				<td colspan="2"><input type="text" name="BI_CONTENT" id="BI_CONTENT" value="<%=rs.getString("BI_CONTENT")%>"></td>
 			</tr>
 			<tr>
 				<td>조회수</td>
