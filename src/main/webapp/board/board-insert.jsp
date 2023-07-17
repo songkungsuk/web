@@ -36,6 +36,7 @@
 	
 	%>
 	<jsp:include page="/include/header.jsp" />
+	
 	<form action="">
 	<table border="1">
 		<tr>
