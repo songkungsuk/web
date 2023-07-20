@@ -35,7 +35,14 @@
 			</tr>
 			<tr>
 				<td>장르</td>
-				<td><input type="text" id="miGenre" name="miGenre" value="<%=rs.getString("MI_GENRE")%>"></td>
+				<td>
+				<select id="miGenre" name="miGenre">
+					<option value="" ></option>
+					<option value="액션" <%=rs.getString("MI_GENRE").equals("액션")?"selected":""%>>액션</option>
+					<option value="코믹" <%=rs.getString("MI_GENRE").equals("코믹")?"selected":""%>>코믹</option>
+					<option value="로맨스" <%=rs.getString("MI_GENRE").equals("로맨스")?"selected":""%>>로맨스</option>
+				</select>
+				</td>
 			</tr>
 			<tr>
 				<td>조회수</td>

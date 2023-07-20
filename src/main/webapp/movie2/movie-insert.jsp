@@ -1,6 +1,4 @@
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Statement"%>
-
 <%@page import="com.web.common.dbCon"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,33 +11,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="/include/header.jsp" />
 	<%
 	String miTitle = request.getParameter("miTitle");
 	String miDesc = request.getParameter("miDesc");
 	String miGenre = request.getParameter("miGenre");
-	String miCnt = request.getParameter("miCnt");
-
 	if (miTitle != null && miTitle.length() != 0) {
 		Connection con = dbCon.getCon();
-		String sql = "INSERT INTO MOVIE_INFO(MI_TITLE, MI_DESC, MI_GENRE, MI_CNT)";
-		sql += "VALUES(?,?,?,?)";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, miTitle);
-		ps.setString(2, miDesc);
-		ps.setString(3, miGenre);
-		ps.setString(4, miCnt);
+		String sql = "INSERT INTO MOVIE_INFO(MI_TITLE, MI_DESC, MI_GENRE)";
+		sql += "VALUES(?,?,?)";
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, miTitle);
+		pstmt.setString(2, miDesc);
+		pstmt.setString(3, miGenre);
 
-		int result = ps.executeUpdate();
+		int result = pstmt.executeUpdate();
 		if (result == 1) {
 	%>
 	<script type="text/javascript">
-				alert("새로운 영화가 만들어졌습니다");
-				location.href="'<%=root%>/movie/movie-list.jsp'";
+		alert("새로운 영화가 만들어 졌습니다");
+		location.href="<%=root%>/movie2/movie-list.jsp";
 	</script>
-	<%
-	} 
 
+
+	<%
+	}
 	}
 	%>
 	<form action="">
@@ -50,18 +45,14 @@
 			</tr>
 			<tr>
 				<td>설명</td>
-				<td><textarea rows="30" cols="30" id="miDesc" name="miDesc"></textarea></td>
+				<td><input type="text" id="miDesc" name="miDesc"></td>
 			</tr>
 			<tr>
 				<td>장르</td>
 				<td><input type="text" id="miGenre" name="miGenre"></td>
 			</tr>
 			<tr>
-				<td>조회수</td>
-				<td><input type="text" id="miCnt" name="miCnt"></td>
-			</tr>
-			<tr>
-				<td><button>제출</button></td>
+				<td><button>등록</button></td>
 			</tr>
 		</table>
 	</form>
